@@ -52,7 +52,7 @@ sessionsRouter.delete('/', (req, res) => {
 // U
 // Create (login route)
 
-})
+
 // E
 // S
 // Export Sessions Router
