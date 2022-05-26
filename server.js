@@ -44,11 +44,17 @@ const sessionsController = require('./controllers/sessions');
 app.use('/sessions', sessionsController);
 
 
-// INDEX
+// INDEX with updated dashboard view
 app.get('/', (req, res) => {
-	res.render('index.ejs', {
-		currentUser: req.session.currentUser
-	});
+	if (req.session.currentUser) {
+		res.render('dashboard.ejs', {
+			currentUser: req.session.currentUser
+		});
+	} else {
+		res.render('index.ejs', {
+			currentUser: req.session.currentUser
+		});
+	}
 });
 
 // LISTENER
