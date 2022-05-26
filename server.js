@@ -6,6 +6,8 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 // configure express sessions
 const session = require('express-session');
+// configure method override
+const methodOverride = require('method-override');
 
 // database configuration
 mongoose.connect(process.env.DATABASE_URL, {
@@ -30,6 +32,9 @@ app.use(
         resave: false,
         saveUninitialized: false
     }));
+    // configure method override
+    app.use(methodOverride('_method'));
+
 
 // Routes / Controllers
 const userController = require('./controllers/users');
@@ -41,7 +46,9 @@ app.use('/sessions', sessionsController);
 
 // INDEX
 app.get('/', (req, res) => {
-	res.render('index.ejs');
+	res.render('index.ejs', {
+		currentUser: req.session.currentUser
+	});
 });
 
 // LISTENER
