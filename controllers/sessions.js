@@ -36,7 +36,9 @@ sessionsRouter.post('/', (req, res) => {
     });
 });
 // I
-// N
+// New (login page)
+sessionsRouter.get('/new', (req, res) => {
+	res.render('sessions/new.ejs')
 // Delete (logout route)
 sessionsRouter.delete('/', (req, res) => {
     req.session.destroy((error) => {
@@ -45,9 +47,7 @@ sessionsRouter.delete('/', (req, res) => {
 })
 // U
 // Create (login route)
-// New (login page)
-sessionsRouter.get('/new', (req, res) => {
-	res.render('sessions/new.ejs')
+
 })
 // E
 // S
