@@ -39,6 +39,11 @@ const sessionsController = require('./controllers/sessions');
 app.use('/sessions', sessionsController);
 
 
+// INDEX
+app.get('/', (req, res) => {
+	res.render('index.ejs');
+});
+
 // LISTENER
 const PORT = process.env.PORT;
 app.listen(PORT, () => {
