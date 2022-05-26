@@ -35,14 +35,21 @@ sessionsRouter.post('/', (req, res) => {
         }
     });
 });
-
+// I
+// N
 // Delete (logout route)
 sessionsRouter.delete('/', (req, res) => {
     req.session.destroy((error) => {
         res.redirect('/');
     });
 })
+// U
 // Create (login route)
-
+// New (login page)
+sessionsRouter.get('/new', (req, res) => {
+	res.render('sessions/new.ejs')
+})
+// E
+// S
 // Export Sessions Router
 module.exports = sessionsRouter;
